@@ -1,8 +1,7 @@
 package dijkstra
 
 import java.util.TreeSet
-import dijkstra.Graph
-import dijkstra.Edge
+
 
 class Dijkstra(val graphD:Graph) {
 
@@ -20,7 +19,9 @@ class Dijkstra(val graphD:Graph) {
             v.previous = if (v == source) source else null
             v.dist = if (v == source) 0 else Int.MAX_VALUE
             q.add(v)
+
         }
+
 
         dijkstra(q)
     }
@@ -30,7 +31,7 @@ class Dijkstra(val graphD:Graph) {
             // vertex with shortest distance (first iteration will return source)
             val u: Vertex = q.pollFirst()
             // if distance is infinite we can ignore 'u' (and any other remaining vertices)
-            // since they are unreachable
+
 
             if (u.dist == Int.MAX_VALUE) break
 
@@ -44,12 +45,13 @@ class Dijkstra(val graphD:Graph) {
                     v.dist = alternateDist
                     v.previous = u
                     q.add(v)
+
                 }
             }
         }
     }
-    //printing either Undirected or Directed twice depending if set to true or false at begining.
-// With directed set to true will print directed path, set to false prints undirected
+
+
     fun printPath(endName: String) {
         if (!graphD.graph.containsKey(endName)) {
             println("Graph doesn't contain end vertex '$endName'")
@@ -62,13 +64,8 @@ class Dijkstra(val graphD:Graph) {
         if (graphD.showAllPaths) printAllPaths() else println()
 
     }
-   /* fun printDist(){
-        val v = graphD
-        println(v.distance)
-        }
-    }*/
 
-    /** Prints the path from the source to every vertex (output order is not guaranteed) */
+    /** Prints all paths from  beginning  source to every vertex  */
     private fun printAllPaths() {
 
         for (v in graphD.graph.values) {
@@ -77,4 +74,5 @@ class Dijkstra(val graphD:Graph) {
         }
         println()}
 }
+
 

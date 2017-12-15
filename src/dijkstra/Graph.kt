@@ -1,10 +1,12 @@
 package dijkstra
 
+
 class Graph(edges:List<Edge>) {
     internal lateinit var edges: List<Edge>
     internal var directed: Boolean = true
     var showAllPaths: Boolean = false
-    //not placed in primary constructor so you don't have to call it when calling class Graph
+    // With directed set to true will print directed path, set to false prints undirected
+    //showAllPath set to false so it won't print out all paths from source to vertex
     internal var graph = HashMap<String, Vertex>(edges.size)
 
     init {

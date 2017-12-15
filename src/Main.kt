@@ -34,12 +34,15 @@ fun main(args: Array<String>) {
             Edge("Cam's dwelling", "Craig's haunt", 18),
             Edge("Nathan's flat", "Kirk's farm", 3)
     )
-    var edges = Graph(GRAPH)
-    var method = Dijkstra(graphD = edges)
-    
 
+    var trips = Graph(GRAPH)
+    var method = Dijkstra(graphD = trips)
+    
+    //calls Dijkstra object to create graph
     method.dijkstra(START)
+    //calls Dijkstra object to construct path
     method.printPath(END)
-    //method.printDist()
+
+
 
 }

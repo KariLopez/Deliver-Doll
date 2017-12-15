@@ -11,10 +11,11 @@ class Vertex (val name: String) : Comparable<Vertex> {
             null -> print("$name(unreached)")
             else -> {
                 previous!!.printPath()
-                print(" => $name")
+                print(" => $name ($dist)")
             }
         }
     }
+
     override fun compareTo(other: Vertex): Int {
         if (dist == other.dist) return name.compareTo(other.name)
         return dist.compareTo(other.dist)
